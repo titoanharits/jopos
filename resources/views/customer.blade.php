@@ -16,7 +16,7 @@
             <div class="row">
 
               <div class="col-sm-1">
-                <a href="/customer/create" class="btn btn-lg btn-primary">Tambah</a>
+                <a href="{{route('createcustomer')}}" class="btn btn-lg btn-primary">Tambah</a>
               </div>
             </div>
             <br>
@@ -46,15 +46,15 @@
                       <td>{{$item->telepon}}</td>
                       <td>{{$item->keterangan}}</td>
                       <td>
-                        <form action="/customer/edit/{{$item->id_customer}}"
+                        <form action="{{ route('editcustomer', $item) }}"
                           style="display: inline">
-                          <button class="btn btn-primary" style="width: 37px;">
-                            <i class="fa fa-pencil-square-o"></i>
+                          <button class="btn-circle btn-primary" style="width: 37px;">
+                            <i class="fa fa-edit"></i>
                           </button>
                         </form>
-                        <form action="/customer/{{$item->id_customer}}" method="POST"
+                        <form action="{{ route('deletecustomer', $item)}}" method="POST"
                           style="display: inline">
-                          <button class="btn btn-danger">
+                          <button class="btn-circle btn-danger">
                             <i class="fa fa-trash"></i>
                           </button>
                           {{csrf_field()}}
@@ -69,7 +69,7 @@
             </div>
           </div>
         </div>
-      </div>     
+      </div>
     </div>
   </div>
 </div>

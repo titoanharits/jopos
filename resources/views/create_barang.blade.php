@@ -15,12 +15,12 @@
         <div class="basic-login-form-ad">
           <div class="row">
             <div class="col-lg-12">
-              <div class="all-form-element-inner">
+              <div class="all-form-element">
                 <!-- form -->
-                <form action="/barang" method="POST">
+                <form action="{{route('barang')}}" method="POST">
 
                   <!-- input kode barang + nama barang -->
-                  <div class="form-group-inner">
+                  <div class="form-group">
                     <div class="row">
                       <div class="col-lg-4">
                         <label class="login2 pull-right pull-right-pro">Kode Barang </label>
@@ -33,7 +33,7 @@
                       <div class="col-lg-4">
                         <input type="number" class="form-control" name="id_barang"
                         placeholder="Kode Barang"
-                        value="0000{{$id}}"/>
+                        value="0000 {{$id}}"/>
                         @if($errors->has('id_barang'))
                         <p>{{$errors->first('id_barang')}}</p>
                         @endif
@@ -49,9 +49,9 @@
                     </div>
                   </div>
 
-                  <br>
+
                   <!-- form supplier -->
-                  <div class="form-group-inner">
+                  <div class="form-group">
                     <div class="row">
                       <div class="col-lg-2">
                         <label class="login2 pull-right pull-right-pro">Nama Supplier</label>
@@ -71,9 +71,9 @@
                     </div>
                   </div>
                 </div>
-                <br>
+
                 <!-- form jenis barang -->
-                <div class="form-group-inner">
+                <div class="form-group">
                   <div class="row">
                     <div class="col-lg-2">
                       <label class="login2 pull-right pull-right-pro">Kategori</label>
@@ -95,7 +95,7 @@
               </div>
 
               <hr>
-              <div class="form-group-inner">
+              <div class="form-group">
                 <div class="row">
                   <div class="col-lg-4">
                     <label class="login2 pull-right pull-right-pro">Harga Beli
@@ -154,7 +154,7 @@
 
                     <hr>
                     <!-- input satuan -->
-                    <div class="form-group-inner">
+                    <div class="form-group">
                       <div class="row">
                         <div class="col-lg-2">
                           <label class="login2 pull-right pull-right-pro">Satuan 1</label>
@@ -177,7 +177,7 @@
                     </div>
                   </div>
                   <br>
-                  <div class="form-group-inner">
+                  <div class="form-group">
                     <div class="row">
                       <div class="col-lg-2">
                         <label class="login2 pull-right pull-right-pro">Satuan
@@ -212,7 +212,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-group-inner">
+                  <div class="form-group">
                     <div class="row">
                       <div class="col-lg-2">
                         <label class="login2 pull-right pull-right-pro">Satuan
@@ -246,7 +246,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-group-inner">
+                  <div class="form-group">
                     <div class="row">
                       <div class="col-lg-2">
                         <label class="login2 pull-right pull-right-pro">Satuan
@@ -281,8 +281,8 @@
                     </div>
                   </div>
 
-                  <div class="form-group-inner">
-                    <div class="login-btn-inner">
+                  <div class="form-group">
+                    <div class="login-btn">
                       <div class="row">
                         <div class="col-lg-2"></div>
                         <div class="col-lg-9">

@@ -4,7 +4,7 @@
 @section('content')
 <div class="card shadow mb-4">
   <div class="card-header py-2">
-    <h1>Tabel <span class="table-project-n">Barang</span></h1>
+    <h1>Tabel <span class="table-project">Barang</span></h1>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -12,7 +12,7 @@
 
         <div class="row">
           <div class="col-md-1">
-            <a href="/barang/create" class="btn btn-lg btn-primary">Tambah</a>
+            <a href="{{route('createbarang')}}" class="btn btn-lg btn-primary">Tambah</a>
           </div>
 
           <div class="col-md-1">
@@ -47,7 +47,7 @@
                   <td>{{$no}}</td>
                   <td>{{$item->id_barang}}</td>
                   <td>{{$item->nama_barang}}</td>
-                  <td>{{$item->nama}}</td>
+                  <td>{{$item->supplier->nama}}</td>
                   <td>{{$item->kategori->kategori}}</td>
                   <td>Rp. {{number_format($item->harga_beli,0,".",".")}}</td>
                   <td>Rp. {{number_format($item->harga_jual,0,".",".")}}</td>
@@ -107,7 +107,7 @@
   </div>
 </div>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 document.addEventListener("keydown", e => {
   if (e.key == "F5") {
     e.preventDefault()
@@ -121,5 +121,5 @@ function checkKey(key) {
     window.location.href = "/barang/create";
   }
 }
-</script>
+</script> -->
 @endsection

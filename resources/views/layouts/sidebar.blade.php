@@ -29,7 +29,7 @@
     </div>
 
     <li class="nav-item">
-      <a class="nav-link" href="/customer">
+      <a class="nav-link" href="{{route('customer')}}">
         <i class="fas fa-fw fa-user-tag"></i>
         <span>Buyer</span></a>
       </li>
@@ -58,7 +58,7 @@
           <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
 
-              <a class="collapse-item" href="/barang">Laporan Stock</a>
+              <a class="collapse-item" href="{{route('barang')}}">Laporan Stock</a>
               <a class="collapse-item" href="#">Kartu Stock</a>
 
             </div>
