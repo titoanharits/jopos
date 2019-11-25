@@ -38,7 +38,7 @@ Route::delete('/customer/{id}', 'CustomerController@destroy')->name('deletecusto
 //route Supplier
 Route::get('/supplier', 'SupplierController@index')->name('supplier');
 Route::get('/supplier/create', 'SupplierController@create')->name('createsupplier');
-Route::get('/supplier/edit/{id}', 'SupplierController@edit')->name('edisupplier');
-Route::put('/supplier/{id}/edit', 'SupplierController@update')->name('putsupplier');
-Route::post('/supplier', 'SupplierController@store')->name('postsupplier');
+Route::get('/supplier/edit/{id}', 'SupplierController@edit')->name('editsupplier');
+Route::put('/supplier/{id}/edit', 'SupplierController@update')->name('updatesupplier');
+Route::post('/supplier', 'SupplierController@store')->name('storesupplier');
 Route::delete('/supplier/{id}', 'SupplierController@destroy')->name('deletesupplier');

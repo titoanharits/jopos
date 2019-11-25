@@ -7,17 +7,17 @@
   <div class="col-lg-12">
     <div class="card shadow mb-12">
       <div class="card-header py-2">
-        <h1>Tabel <span class="table-project-n">Barang</span></h1>
+        <h1>Tabel <span class="table-project-n">Buyer</span></h1>
       </div>
       <div class="card-body">
         <div class="table-responsive">
           <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
 
             <div class="row">
-
               <div class="col-sm-1">
                 <a href="{{route('createcustomer')}}" class="btn btn-lg btn-primary">Tambah</a>
               </div>
+
             </div>
             <br>
             <div class="row">
