@@ -76,7 +76,7 @@
                     @endif
                   </td>
                   <td>
-                    <form action="/barang/edit/{{$item->id_barang}}" method="get"
+                    <form action="{{route('editbarang', $item)}}" method="get"
                       style="display: inline">
                       <button class="btn-circle btn-md btn-primary">
                         <i class="fa fa-edit"></i>

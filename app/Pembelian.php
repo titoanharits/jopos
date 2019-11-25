@@ -28,21 +28,21 @@ class Pembelian extends Model
 {
     /**
      * The primary key for the model.
-     * 
+     *
      * @var string
      */
     protected $primaryKey = 'id_pembelian';
 
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'string';
 
     /**
      * Indicates if the IDs are auto-incrementing.
-     * 
+     *
      * @var bool
      */
     public $incrementing = false;
@@ -50,7 +50,7 @@ class Pembelian extends Model
     /**
      * @var array
      */
-    protected $fillable = ['id_supplier', 'no_bukti', 'tanggal', 'biaya_kirim', 'diskon_satu', 'diskon_dua', 'jenis_transaksi', 'jatuh_tempo', 'neto', 'uang_muka', 'sisa_piutang', 'total', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id_supplier', 'no_bukti', 'tanggal', 'biaya_kirim', 'neto', 'total', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

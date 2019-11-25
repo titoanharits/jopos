@@ -22,6 +22,6 @@ class DetailPembelian extends Model
     /**
      * @var array
      */
-    protected $fillable = ['id_pembelian', 'id_barang', 'jumlah', 'saldo', 'satuan', 'diskon_satu', 'diskon_dua', 'total_harga', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id_pembelian', 'id_barang', 'jumlah', 'saldo', 'satuan', 'total_harga', 'created_at', 'updated_at', 'deleted_at'];
 
 }

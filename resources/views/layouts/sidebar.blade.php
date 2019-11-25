@@ -64,6 +64,11 @@
             </div>
           </div>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('pembelian')}}">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Pembelian Barang</span></a>
+          </li>
 
         <hr class="sidebar-divider">
         <!-- Heading -->

@@ -59,7 +59,7 @@ class Barang extends Model
     /**
      * @var array
      */
-    protected $fillable = ['id_barang','id_kategori', 'id_supplier', 'nama_barang', 'harga_beli', 'harga_jual', 'laba', 'stok', 'satuan_satu', 'satuan_dua', 'stok_dua', 'satuan_turunan_dua', 'satuan_tiga', 'stok_tiga', 'satuan_turunan_tiga', 'satuan_empat', 'stok_empat', 'satuan_turunan_empat', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id_barang','id_kategori', 'id_supplier', 'nama_barang', 'harga_beli', 'harga_jual', 'laba', 'stok', 'satuan_satu', 'satuan_dua', 'stok_dua', 'satuan_turunan_dua', 'satuan_tiga', 'stok_tiga', 'satuan_turunan_tiga', 'satuan_empat', 'stok_empat', 'satuan_turunan_empat', 'satuan_terakhir', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

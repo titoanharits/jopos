@@ -17,7 +17,7 @@
             <div class="col-lg-12">
               <div class="all-form-element">
                 <!-- form -->
-                <form action="{{route('barang')}}" method="POST">
+                <form action="{{route('storebarang')}}" method="POST">
 
                   <!-- input kode barang + nama barang -->
                   <div class="form-group">
@@ -167,7 +167,7 @@
                             onchange="satuanDua();">
                             <option></option>
                             <option value="PCS">pcs</option>
-                            <option value="Gr">gr</option>
+                            <option value="gr">gr</option>
                           </select>
                           @if($errors->has('satuan_satu'))
                           <p>{{$errors->first('satuan_satu')}}</p>

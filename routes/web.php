@@ -23,7 +23,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/barang', 'BarangController@index')->name('barang');
 Route::get('/barang/create', 'BarangController@create')->name('createbarang');
-Route::post('/barang', 'BarangController@store');
+Route::get('/barang/edit/{id_barang}', 'BarangController@edit')->name('editbarang');
+Route::post('/barang', 'BarangController@store')->name('storebarang');
+Route::put('/barang/{id}/edit', 'BarangController@update')->name('updatebarang');
 
 
 // route Customer
@@ -42,3 +44,6 @@ Route::get('/supplier/edit/{id}', 'SupplierController@edit')->name('editsupplier
 Route::put('/supplier/{id}/edit', 'SupplierController@update')->name('updatesupplier');
 Route::post('/supplier', 'SupplierController@store')->name('storesupplier');
 Route::delete('/supplier/{id}', 'SupplierController@destroy')->name('deletesupplier');
+
+//route pembelians
+Route::get('/pembelian', 'PembelianController@index')->name('pembelian');
