@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Detail_Pembelian;
 use App\Pembelian;
 use App\Supplier;
-// use Cart;
+use Cart;
 
 class PembelianController extends Controller
 {
@@ -34,7 +34,7 @@ class PembelianController extends Controller
           $supplier = Supplier::all();
       }
       $data = Cart::getContent();
-      return view('pembelian', compact('id', 'pembelian', 'supplier'));
+      return view('pembelian', compact('id', 'pembelian', 'supplier', 'data'));
     }
 
     /**
