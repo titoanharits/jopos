@@ -181,7 +181,7 @@
     var xmlhttp = new XMLHttpRequest();
     var value = document.getElementById("barang").value;
     if (value != "") {
-      xmlhttp.open("GET", "/pembelian/barang/" + value, false);
+      xmlhttp.open("GET", "pembelian/barang/" + value, false);
       xmlhttp.send(null);
       document.getElementById("detail_barang").innerHTML = xmlhttp.responseText;
     } else {
