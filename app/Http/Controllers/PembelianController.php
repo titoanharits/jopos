@@ -126,7 +126,7 @@ class PembelianController extends Controller
 
   public function tambahBarang(Request $request)
   {
-    $barang = DB::Barang::where('id_barang', $request->id_barang)
+    $barang = Barang::where('id_barang', $request->id_barang)
     ->first();
     $satuan_satu = $barang->satuan_satu;
     $satuan_dua = $barang->satuan_dua;
