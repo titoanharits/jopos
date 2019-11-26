@@ -8,6 +8,7 @@ use App\Pembelian;
 use App\Supplier;
 use App\Barang;
 use Cart;
+use Session;
 
 class PembelianController extends Controller
 {
