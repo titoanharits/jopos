@@ -50,7 +50,7 @@ class Pembelian extends Model
     /**
      * @var array
      */
-    protected $fillable = ['id_supplier', 'no_bukti', 'tanggal', 'biaya_kirim', 'neto', 'total', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id_pembelian', 'id_supplier', 'no_bukti', 'tanggal', 'biaya_kirim', 'neto', 'diskon_satu', 'diskon_dua', 'jenis_transaksi', 'uang_muka', 'sisa_piutang', 'total', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

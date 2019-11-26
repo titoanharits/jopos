@@ -24,7 +24,7 @@
                       <input id="id_pembelian" type="text" class="form-control"
                       name="id_pembelian"
                       placeholder="No Faktur"
-                      value="{{substr(date("Ymd"), 2)}}POS000{{$id}}"/>
+                      value="{{substr(date("Ymd"), 2)}}POS000{{$pembelian}}"/>
                     </div>
                   </div>
                 </div>
@@ -277,6 +277,43 @@
                   <td></td>
                   <td></td>
                   <td></td>
+                  <td>
+                    Uang Muka
+                  </td>
+                  <td>
+                    <div class="row">
+                      <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                        <div class="input-group">
+                          <input onkeyup="uangMuka()"
+                          type="number" id="uang"
+                          class="form-control uang" name="uang_muka"
+                          placeholder="Uang Muka"/>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    Sisa Piutang
+                  </td>
+                  <td>
+                    <div class="row">
+                      <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                        <div class="input-group">
+                          <input type="number" id="sisa"
+                          class="form-control uang" name="sisa_piutang"
+                          placeholder="Sisa Piutang"/>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                   <td></td>
                   <td></td>
                   <td>
@@ -324,7 +361,7 @@ function pilihSupplier() {
   var xmlhttp = new XMLHttpRequest();
   var value = document.getElementById("supplier").value;
   if (value != "") {
-    xmlhttp.open("GET", "http://g.pbf.ilkom.unej.ac.id/162410101130/jopos/public/pembelian/fetch/" + value, false);
+    xmlhttp.open("GET", "pembelian/fetch/" + value, false);
     xmlhttp.send(null);
     document.getElementById("detail_sup").innerHTML = xmlhttp.responseText;
   } else {
@@ -332,10 +369,12 @@ function pilihSupplier() {
   }
 }
 
+// http://g.pbf.ilkom.unej.ac.id/162410101130/jopos/public/
+
 function onClick() {
   var value = document.getElementById("supplier").value;
   if (value != "") {
-    window.location.href = "http://g.pbf.ilkom.unej.ac.id/162410101130/jopos/public/pembelian/create/" + value;
+    window.location.href = "pembelian/create/" + value;
   } else {
     alert('Supplier Kosong');
   }

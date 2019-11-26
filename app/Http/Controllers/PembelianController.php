@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Detail_Pembelian;
+use App\DetailPembelian;
 use App\Pembelian;
 use App\Supplier;
 use App\Barang;
@@ -26,11 +26,10 @@ class PembelianController extends Controller
     if (count((array)$id) == 0) {
       $pembelian = 1;
     } else {
-      $pembelian = substr($id->id_pembelian, -4) + 1;
+        $pembelian = substr($id->id_pembelian, -4) .+ 1;
     }
     if (session()->has('id_supplier')) {
-      $supplier = DB::table('suppliers')
-      ->where('id', session('id_supplier'))
+      $supplier = Supplier::where('id', session('id_supplier'))
       ->first();
     } else {
       $supplier = Supplier::all();
@@ -176,10 +175,10 @@ class PembelianController extends Controller
       'name' => $barang->nama_barang,
       'quantity' => $stokbaru,
       'attributes' => [
-      'satuan' => $satuan_satu,
-      // 'diskon_satu' => $request->diskon_satu,
-      // 'diskon_dua' => $request->diskon_dua,
-      'total' => $total
+        'satuan' => $satuan_satu,
+        // 'diskon_satu' => $request->diskon_satu,
+        // 'diskon_dua' => $request->diskon_dua,
+        'total' => $total
       ]
     ]);
     if ($add) {
@@ -195,54 +194,64 @@ class PembelianController extends Controller
   */
   public function store(Request $request)
   {
-    $pembelian = new Pembelian();
-    $pembelian->id_pembelian = $request->id_pembelian;
-    $pembelian->id_supplier = $request->id_supplier;
-    $pembelian->no_bukti = $request->no_bukti;
-    $pembelian->tanggal = $request->tanggal;
-    $pembelian->biaya_kirim = $request->biaya_kirim;
-    $pembelian->diskon_satu = $request->diskon_satu;
-    $pembelian->diskon_dua = $request->diskon_dua;
-    $pembelian->jenis_transaksi = $request->jenis_transaksi;
-    if ($request->jatuh_tempo > 0) {
-      $pembelian->jatuh_tempo = date('Y-m-d', strtotime($request->tanggal . ' + ' . $request->jatuh_tempo . ' days'));
-    }
-    $pembelian->neto = $request->neto;
-    $pembelian->uang_muka = $request->uang_muka;
-    $pembelian->sisa_piutang = $request->sisa_piutang;
-    $pembelian->total = $request->total;
-    $pembelian->save();
-    $idpembelian = DB::table('pembelians')
-    ->where('id_supplier', $request->id_supplier)
+    $pembelian = Pembelian::create([
+      'id_pembelian' => $request->id_pembelian,
+      'id_supplier' => $request->id_supplier,
+      'no_bukti' => $request->no_bukti,
+      'tanggal' => $request->tanggal,
+      'biaya_kirim' => $request->biaya_kirim,
+      'diskon_satu' => $request->diskon_satu,
+      'diskon_dua' => $request->diskon_dua,
+      'jenis_transaksi' => $request->jenis_transaksi,
+      'neto' => $request->neto,
+      'uang_muka' => $request->uang_muka,
+      'sisa_piutang' => $request->sisa_piutang,
+      'total' => $request->total,
+    ]);
+
+    $idpembelian = Pembelian::where('id_supplier', $request->id_supplier)
     ->orderBy('created_at', 'DESC')
     ->take(1)
     ->first();
+
     $data = Cart::getContent();
     foreach ($data as $item) {
-      $stok = DB::table('barangs')->where("id_barang", $item->id)
+      $stok = Barang::where("id_barang", $item->id)
       ->first();
+
       $laba = (($stok->harga_jual - $item->price) / $item->price) * 100;
-      $barang = DB::table('barangs')
-      ->where('id_barang', $item->id)
+
+      $barang = Barang::where('id_barang', $item->id)
       ->update([
         'laba' => $laba,
         'stok' => $stok->stok + $item->quantity,
         'harga_beli' => $item->price
       ]);
-      $detail = new Detail_Pembelian();
-      $detail->id_pembelian = $idpembelian->id_pembelian;
-      $detail->id_barang = $item->id;
-      $detail->jumlah = $item->quantity;
-      $detail->satuan = $item->attributes['satuan'];
-      $detail->diskon_satu = $item->attributes['diskon_satu'];
-      $detail->diskon_dua = $item->attributes['diskon_dua'];
-      $detail->total_harga = $item->attributes['total'];
-      $detail->saldo = $item->quantity + $stok->stok;
-      $detail->save();
+
+      $detail = DetailPembelian::create([
+        'id_pembelian' => $idpembelian->id_pembelian,
+        'id_barang' => $item->id,
+        'jumlah' => $item->quantity,
+        'satuan' => $item->attributes['satuan'],
+        // 'diskon_satu' => $item->attributes['diskon_satu'],
+        // 'diskon_dua' => $item->attributes['diskon_dua'],
+        'total_harga' => $item->attributes['total'],
+        'saldo' => $item->quantity + $stok->stok,
+      ]);
+      // $detail = new Detail_Pembelian();
+      // $detail->id_pembelian = $idpembelian->id_pembelian;
+      // $detail->id_barang = $item->id;
+      // $detail->jumlah = $item->quantity;
+      // $detail->satuan = $item->attributes['satuan'];
+      // $detail->diskon_satu = $item->attributes['diskon_satu'];
+      // $detail->diskon_dua = $item->attributes['diskon_dua'];
+      // $detail->total_harga = $item->attributes['total'];
+      // $detail->saldo = $item->quantity + $stok->stok;
+      // $detail->save();
     }
     Cart::clear();
     Session::flush();
-    return redirect('detail_pembelian');
+    return redirect('pembelian');
   }
 
   /**
