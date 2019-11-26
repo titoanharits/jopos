@@ -2,7 +2,7 @@
 @section('title','Pembelian')
 
 @section('content')
-<form method="post" action="/pembelian">
+<form method="post" action="{{route('storepembelian')}}">
   <div class="static-table-area mg-b-15">
     <div class="container-fluid">
       <div class="row">
@@ -10,17 +10,12 @@
           <div class="sparkline8-list shadow-reset">
             <div class="sparkline8-hd">
               <div class="main-sparkline8-hd">
-                <h1>Basic Table</h1>
-                <div class="sparkline8-outline-icon">
-                  <span class="sparkline8-collapse-link"><i class="fa fa-chevron-up"></i></span>
-                  <span><i class="fa fa-wrench"></i></span>
-                  <span class="sparkline8-collapse-close"><i class="fa fa-times"></i></span>
-                </div>
+                <h1>Faktur Pembelian</h1>
               </div>
             </div>
             <div class="sparkline8-graph">
               <div class="static-table-list">
-                <div class="form-group-inner">
+                <div class="form-group">
                   <div class="row">
                     <div class="col-lg-3">
                       <label class="login2 pull-right pull-right-pro">No Entry</label>
@@ -33,7 +28,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-group-inner">
+                <div class="form-group">
                   <div class="row">
                     <div class="col-lg-3">
                       <label class="login2 pull-right pull-right-pro">Tanggal</label>
@@ -45,7 +40,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-group-inner">
+                <div class="form-group">
                   <div class="row">
                     <div class="col-lg-3">
                       <label class="login2 pull-right pull-right-pro">No Bukti</label>
@@ -58,7 +53,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-group-inner">
+                <div class="form-group">
                   <div class="row">
                     <div class="col-lg-3">
                       <label class="login2 pull-right pull-right-pro">Jenis Bayar</label>
@@ -69,29 +64,8 @@
                         class="form-control custom-select-value"
                         name="jenis_transaksi" onchange="pilihBayar();">
                         <option value="Tunai">Tunai</option>
-                        <option value="Kredit">Kredit</option>
+
                       </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div id="jatuh_tempo" style="display: none;">
-                <div class="form-group-inner">
-                  <div class="row">
-                    <div class="col-lg-3">
-                      <label class="login2 pull-right pull-right-pro">Jatuh Tempo</label>
-                    </div>
-                    <div class="col-lg-2">
-                      <input onkeyup="jatuhTempo()" type="number" class="form-control"
-                      name="jatuh_tempo"
-                      id="jumlahJatuh"/>
-                    </div>
-                    <div class="col-lg-2">
-                      <label class="login2 pull-right pull-right-pro">Tanggal</label>
-                    </div>
-                    <div class="col-lg-5">
-                      <input type="text" class="form-control" id="tanggalJatuh"
-                      disabled/>
                     </div>
                   </div>
                 </div>
@@ -182,7 +156,7 @@
               </div>
             </div>
             <table id="table" data-toggle="table" data-pagination="true"
-            data-toolbar="#toolbar">
+            data-toolbar="#toolbar" class="table table-bordered dataTable">
             <thead>
               <tr>
                 <th>No</th>
@@ -191,8 +165,8 @@
                 <th>Harga Beli</th>
                 <th>Jumlah</th>
                 <th>Satuan</th>
-                <th>Diskon (%)</th>
-                <th>Diskon (Rp)</th>
+                <th></th>
+                <th></th>
                 <th>Sub Total</th>
               </tr>
             </thead>
@@ -211,9 +185,9 @@
                 <td>Rp. {{number_format($item->price,0,".",".")}}</td>
                 <td>{{$item->quantity}}</td>
                 <td>{{$item->attributes['satuan']}}</td>
-                <td>{{$item->attributes['diskon_satu']}} %</td>
+                <td></td>
                 <td>
-                  Rp. {{number_format($item->attributes['diskon_dua'],0,".",".")}}</td>
+                  </td>
                   <td>
                     Rp. {{number_format(($item->attributes['total']),0,".",".")}}
                   </td>
@@ -259,6 +233,7 @@
                     </div>
                   </td>
                 </tr>
+
                 <tr>
                   <td></td>
                   <td></td>
@@ -295,42 +270,7 @@
                     </div>
                   </td>
                 </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    Uang Muka
-                  </td>
-                  <td>
-                    <div class="row">
-                      <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                        <div class="input-group">
-                          <input onkeyup="uangMuka()"
-                          type="number" id="uang"
-                          class="form-control uang" name="uang_muka"
-                          placeholder="Uang Muka"/>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    Sisa Piutang
-                  </td>
-                  <td>
-                    <div class="row">
-                      <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                        <div class="input-group">
-                          <input type="number" id="sisa"
-                          class="form-control uang" name="sisa_piutang"
-                          placeholder="Sisa Piutang"/>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
+
                 <tr>
                   <td></td>
                   <td></td>
@@ -401,15 +341,6 @@ function onClick() {
   }
 }
 
-function pilihBayar() {
-  var bayar = document.getElementById("jenis_transaksi").value;
-  var tempo = document.getElementById("jatuh_tempo");
-  if (bayar == "Kredit") {
-    tempo.style.display = "inline";
-  } else {
-    tempo.style.display = "none";
-  }
-}
 
 function biayaKirim() {
   var kirim = +document.getElementById("biaya_kirim").value;
