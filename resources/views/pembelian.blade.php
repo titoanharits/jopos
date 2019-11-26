@@ -324,7 +324,7 @@ function pilihSupplier() {
   var xmlhttp = new XMLHttpRequest();
   var value = document.getElementById("supplier").value;
   if (value != "") {
-    xmlhttp.open("GET", "/pembelian/fetch/" + value, false);
+    xmlhttp.open("GET", "http://g.pbf.ilkom.unej.ac.id/162410101130/jopos/public/pembelian/fetch/" + value, false);
     xmlhttp.send(null);
     document.getElementById("detail_sup").innerHTML = xmlhttp.responseText;
   } else {
