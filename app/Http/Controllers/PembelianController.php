@@ -37,6 +37,32 @@ class PembelianController extends Controller
       return view('pembelian', compact('id', 'pembelian', 'supplier', 'data'));
     }
 
+    public function fetch($id)
+    {
+      $data = Supplier::where('id', $id)
+      ->first();
+      $output = '<table class="table sparkle-table">
+      <tr>
+      <td>Alamat</td>
+      <td>' . $data->alamat . '</td>
+      </tr>
+      <tr>
+      <td>Telepon Perusahaan</td>
+      <td>' . $data->telepon . '</td>
+      </tr>
+      <tr>
+      <td>Nama CP</td>
+      <td>' . $data->nama_cp . '</td>
+      </tr>
+      <tr>
+      <td>Telepon CP</td>
+      <td>' . $data->telepon_cp . '</td>
+      </tr>
+      </table>';
+      echo $output;
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

@@ -47,3 +47,4 @@ Route::delete('/supplier/{id}', 'SupplierController@destroy')->name('deletesuppl
 
 //route pembelians
 Route::get('/pembelian', 'PembelianController@index')->name('pembelian');
+Route::get('/pembelian/fetch/{id}', 'PembelianController@fetch')->name('fetchsupplier');

@@ -448,37 +448,5 @@ function jatuhTempo() {
   document.getElementById("tanggalJatuh").value = finalDate;
 }
 </script>
-<script>
-document.addEventListener("keydown", e => {
-  if (e.key == "F3") {
-    e.preventDefault()
-  }
-  if (e.key == "F5") {
-    e.preventDefault()
-  }
-  if (e.key == "F12") {
-    e.preventDefault()
-  }
-  if (e.key == "Insert") {
-    e.preventDefault()
-  }
-  ;
-});
-window.addEventListener("keyup", checkKey, false);
 
-function checkKey(key) {
-  if (key.keyCode == "123") {
-    document.getElementById("no_bukti").focus();
-  }
-  if (key.keyCode == "114") {
-    document.getElementById("supplier").focus();
-  }
-  if (key.keyCode == "116") {
-    document.getElementById("myHref").click();
-  }
-  if (key.keyCode == "45") {
-    document.getElementById("biaya_kirim").focus();
-  }
-}
-</script>
 @endsection
