@@ -9,17 +9,17 @@
         <div class="sparkline12-list shadow-reset mg-t-30">
           <div class="sparkline12-hd">
             <div class="main-sparkline12-hd">
-              <h1>Tambah Pembelian</h1>
+              <h1>Tambah Barang</h1>
             </div>
           </div>
           <div class="sparkline12-graph">
             <div class="basic-login-form-ad">
               <div class="row">
                 <div class="col-lg-12">
-                  <div class="all-form-element-inner">
+                  <div class="all-form">
                     <form method="POST" action="{{route('tambahbarang')}}">
                       <input type="hidden" name="id_supplier" value="{{$id}}">
-                      <div class="form-group-inner">
+                      <div class="form-group">
                         <div class="row">
                           <div class="col-lg-3">
                             <label class="login2 pull-right pull-right-pro">Nama
@@ -44,7 +44,7 @@
                       </div>
                       <div id="detail_barang">
 
-                        <div class="form-group-inner">
+                        <div class="form-group">
                           <div class="row">
                             <div class="col-lg-3">
                               <label class="login2 pull-right pull-right-pro">Harga
@@ -65,7 +65,7 @@
                               </div>
                             </div>
                           </div>
-                          <div class="form-group-inner">
+                          <div class="form-group">
                             <div class="row">
                               <div class="col-lg-3">
                                 <label class="login2 pull-right pull-right-pro">Satuan</label>
@@ -79,7 +79,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="form-group-inner">
+                      <div class="form-group">
                         <div class="row">
                           <div class="col-lg-3">
                             <label class="login2 pull-right pull-right-pro">Jumlah</label>
@@ -92,7 +92,7 @@
                         </div>
                       </div>
 
-                        <div class="form-group-inner">
+                        <div class="form-group">
                           <div class="row">
                             <div class="col-lg-3">
                               <label class="login2 pull-right pull-right-pro">Sub
@@ -110,7 +110,7 @@
                               </div>
                             </div>
                           </div>
-                          <div class="form-group-inner">
+                          <div class="form-group">
                             <div class="login-btn-inner">
                               <div class="row">
                                 <div class="col-lg-3"></div>

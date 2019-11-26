@@ -17,6 +17,7 @@ class customerController extends Controller
   {
       $this->middleware('auth');
   }
+
   public function index()
   {
     $customer = Customer::all();

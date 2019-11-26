@@ -52,3 +52,8 @@ Route::get('pembelian/create/{id}', 'PembelianController@create')->name('createp
 Route::post('pembelian/barang/', 'PembelianController@tambahBarang')->name('tambahbarang');
 Route::post('pembelian', 'PembelianController@store')->name('storepembelian');
 Route::get('pembelian/barang/{id}', 'PembelianController@barang')->name('fetchbarang');
+Route::get('pembelian/clear', 'PembelianController@clear');
+Route::get('pembelian/detail/{id}', 'PembelianController@detail_barang')->name('detailbarang');
+
+//route detail pembelian
+Route::get('/detail_pembelian', 'DetailPembelianController@index')->name('detailpembelian');

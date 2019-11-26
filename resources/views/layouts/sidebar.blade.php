@@ -51,11 +51,11 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBarang" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>Barang</span>
           </a>
-          <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div id="collapseBarang" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
 
               <a class="collapse-item" href="{{route('barang')}}">Laporan Stock</a>
@@ -64,11 +64,22 @@
             </div>
           </div>
         </li>
+    <!-- batas -->
         <li class="nav-item">
-          <a class="nav-link" href="{{route('pembelian')}}">
-            <i class="fas fa-fw fa-users"></i>
-            <span>Pembelian Barang</span></a>
-          </li>
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Pembelian Barang</span>
+          </a>
+          <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+
+              <a class="collapse-item" href="{{route('pembelian')}}">Pembelian Barang</a>
+              <a class="collapse-item" href="{{route('detailpembelian')}}">Rekap Pembelian Barang</a>
+
+            </div>
+          </div>
+        </li>
+
 
         <hr class="sidebar-divider">
         <!-- Heading -->

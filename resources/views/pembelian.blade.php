@@ -337,7 +337,7 @@
 
               </div>
               <div class="col-lg-2" style="margin-top: 10px;">
-                <a href="/pembelian/clear" class="btn btn-sm btn-danger login-submit-cs">
+                <a href="pembelian/clear" class="btn btn-sm btn-danger login-submit-cs">
                   Cancel
                 </a>
                 {{--<button type="submit"--}}

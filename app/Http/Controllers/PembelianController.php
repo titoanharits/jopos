@@ -80,7 +80,7 @@ class PembelianController extends Controller
     $data = Barang::where('id_barang', $id)
     ->first();
     $harga = $data->harga_beli;
-    $output = '<div class="form-group-inner">
+    $output = '<div class="form-group">
     <div class="row">
     <div class="col-lg-3">
     <label class="login2 pull-right pull-right-pro">Harga Beli</label>
@@ -95,7 +95,7 @@ class PembelianController extends Controller
     </div>
     </div>
     </div>
-    <div class="form-group-inner">
+    <div class="form-group">
     <div class="row">
     <div class="col-lg-3">
     <label class="login2 pull-right pull-right-pro">Satuan</label>
@@ -238,22 +238,19 @@ class PembelianController extends Controller
         'total_harga' => $item->attributes['total'],
         'saldo' => $item->quantity + $stok->stok,
       ]);
-      // $detail = new Detail_Pembelian();
-      // $detail->id_pembelian = $idpembelian->id_pembelian;
-      // $detail->id_barang = $item->id;
-      // $detail->jumlah = $item->quantity;
-      // $detail->satuan = $item->attributes['satuan'];
-      // $detail->diskon_satu = $item->attributes['diskon_satu'];
-      // $detail->diskon_dua = $item->attributes['diskon_dua'];
-      // $detail->total_harga = $item->attributes['total'];
-      // $detail->saldo = $item->quantity + $stok->stok;
-      // $detail->save();
+
     }
     Cart::clear();
     Session::flush();
-    return redirect('pembelian');
+    return redirect('detail_pembelian');
   }
 
+  public function clear()
+  {
+      Cart::clear();
+      Session::flush();
+      return redirect('pembelian');
+    }
   /**
   * Display the specified resource.
   *
@@ -298,4 +295,17 @@ class PembelianController extends Controller
   {
     //
   }
+
+  public function detail_barang($id)
+  {
+    $pembelians = DetailPembelian::with('Barang')
+    ->where('id_pembelian', $id)
+    ->get();
+    $pembelian = DetailPembelian::with('Supplier','Pembelian')
+    ->where('id_pembelian', $id)
+    ->first();
+    return view('detail_pembelian_barang', compact('pembelians', 'pembelian'));
+  }
+
+
 }
