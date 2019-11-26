@@ -335,7 +335,7 @@ function pilihSupplier() {
 function onClick() {
   var value = document.getElementById("supplier").value;
   if (value != "") {
-    window.location.href = "/pembelian/create/" + value;
+    window.location.href = "http://g.pbf.ilkom.unej.ac.id/162410101130/jopos/public/pembelian/create/" + value;
   } else {
     alert('Supplier Kosong');
   }
