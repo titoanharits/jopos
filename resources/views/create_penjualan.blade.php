@@ -129,7 +129,7 @@
             var xmlhttp = new XMLHttpRequest();
             var value = document.getElementById("barang").value;
             if (value != "") {
-                xmlhttp.open("GET", "penjualan/barang/" + value, false);
+                xmlhttp.open("GET", "http://g.pbf.ilkom.unej.ac.id/162410101073/jopos/public/penjualan/barang/" + value, false);
                 xmlhttp.send(null);
                 document.getElementById("detail_barang").innerHTML = xmlhttp.responseText;
             } else {
