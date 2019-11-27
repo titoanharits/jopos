@@ -19,21 +19,21 @@ class Penjualan extends Model
 {
     /**
      * The primary key for the model.
-     * 
+     *
      * @var string
      */
     protected $primaryKey = 'id_penjualan';
 
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'string';
 
     /**
      * Indicates if the IDs are auto-incrementing.
-     * 
+     *
      * @var bool
      */
     public $incrementing = false;
@@ -41,7 +41,7 @@ class Penjualan extends Model
     /**
      * @var array
      */
-    protected $fillable = ['id_customer', 'tanggal', 'total', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id_penjualan', 'id_customer', 'tanggal', 'total', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

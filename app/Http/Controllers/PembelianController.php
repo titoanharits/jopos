@@ -92,7 +92,7 @@ class PembelianController extends Controller
     </div>
     <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
     <div class="input-group">
-    <span class="input-group-addon">Rp.</span>
+    <span class="input-group-text">Rp.</span>
     <input type="number" id="harga" class="form-control diskon" name="harga_beli"
     placeholder="Harga Beli"
     value="' . $harga . '" required/>

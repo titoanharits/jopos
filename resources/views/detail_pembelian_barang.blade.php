@@ -24,7 +24,8 @@
                                     ?>
                                     <label style="font-size: 15pt;">Status : {{$lunas}}</label>
                                 </div>
-                                <table id="table" data-toggle="table" data-toolbar="#toolbar">
+                                <table id="table" data-toggle="table" data-toolbar="#toolbar"
+                                class="table table-bordered dataTable">
                                     <thead>
                                     <tr>
                                         <th>No</th>
@@ -32,8 +33,6 @@
                                         <th>Nama Barang</th>
                                         <th>Jumlah</th>
                                         <th>Harga Beli</th>
-                                        <th>Diskon Satu</th>
-                                        <th>Diskon Dua</th>
                                         <th>Sub Total</th>
                                     </tr>
                                     </thead>
@@ -49,9 +48,6 @@
                                             <td>{{$item->id_barang}}</td>
                                             <td>{{$item->nama_barang}}</td>
                                             <td>{{$item->jumlah}}</td>
-                                            <td>Rp. {{number_format($item->harga_beli,0,".",".")}}</td>
-                                            <td>{{$item->diskon_satu}}%</td>
-                                            <td>Rp. {{number_format($item->diskon_dua,0,".",".")}}</td>
                                             <td>Rp. {{number_format($item->total_harga,0,".",".")}}</td>
                                         </tr>
                                     @endforeach
@@ -72,7 +68,7 @@
 
                                     </div>
                                     <div class="col-lg-1" style="margin-top: 10px;">
-                                        <a href="/detail_pembelian/print/{{$data->id_pembelian}}"
+                                        <a href="#"
                                            class="btn btn-sm btn-primary login-submit-cs">Print</a>
                                     </div>
                                 </div>

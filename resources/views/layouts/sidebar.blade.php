@@ -7,7 +7,7 @@
     <div class="sidebar-brand-icon rotate-n-15">
       <i class="fas fa-laugh-wink"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+    <div class="sidebar-brand-text mx-3">JOPOS<sup>1.2</sup></div>
   </a>
 
   <!-- Divider -->
@@ -88,15 +88,15 @@
         </div>
 
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="{{route('penjualan')}}">
             <i class="fas fa-fw fa-cart-plus"></i>
-            <span>Penjualan</span></a>
+            <span>Kasir</span></a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="charts.html">
+            <a class="nav-link" href="{{route('detailpenjualan')}}">
               <i class="fas fa-fw fa-chart-area"></i>
-              <span>List Penjualan</span></a>
+              <span>Rekap Penjualan</span></a>
             </li>
 
 

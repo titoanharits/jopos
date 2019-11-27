@@ -52,7 +52,7 @@
                               </div>
                               <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                                 <div class="input-group">
-                                  <span class="input-group-addon">Rp.</span>
+                                  <span class="input-group-text">Rp.</span>
                                   <input type="number" class="form-control diskon"
                                   id="harga" name="harga_beli"
                                   placeholder="Harga Beli"
@@ -100,7 +100,7 @@
                               </div>
                               <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                                 <div class="input-group">
-                                  <span class="input-group-addon">Rp.</span>
+                                  <span class="input-group-text">Rp.</span>
                                   <input type="number" id="total"
                                   class="form-control"
                                   name="sub_total"

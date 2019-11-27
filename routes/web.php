@@ -57,3 +57,16 @@ Route::get('pembelian/detail/{id}', 'PembelianController@detail_barang')->name('
 
 //route detail pembelian
 Route::get('/detail_pembelian', 'DetailPembelianController@index')->name('detailpembelian');
+
+//route penjualan
+Route::get('penjualan', 'PenjualanController@index')->name('penjualan');
+Route::get('penjualan/create', 'PenjualanController@create')->name('createpenjualan');
+Route::post('penjualan', 'PenjualanController@store')->name('storepenjualan');
+Route::post('penjualan/barang/', 'PenjualanController@tambahBarang')->name('tambahbarangkasir');
+Route::get('penjualan/fetch/{id}', 'PenjualanController@fetch');
+Route::get('penjualan/barang/{id}', 'PenjualanController@barang');
+Route::get('penjualan/clear', 'PenjualanController@clear');
+Route::get('/penjualan/detail/{id}', 'PenjualanController@detail_barang')->name('detailstruk');
+
+//detail penjualans
+Route::get('/detail_penjualan', 'DetailPenjualanController@index')->name('detailpenjualan');
