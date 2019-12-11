@@ -10,13 +10,13 @@
                         <div class="sparkline13-graph">
                             <div class="datatable-dashv1-list custom-datatable-overright">
                                 <div id="toolbar" style="text-align: justify">
-                                    <label style="font-size: 15pt;">No Faktur : {{$data->id_pembelian}}</label>
+                                    <label style="font-size: 15pt;">No Faktur : {{$pembelian->id_pembelian}}</label>
                                     <br>
-                                    <label style="font-size: 15pt;">Tanggal : {{$data->tanggal}}</label>
+                                    <label style="font-size: 15pt;">Tanggal : {{$pembelian->tanggal}}</label>
                                     <br>
-                                    <label style="font-size: 15pt;">Supplier : {{$data->nama}}</label>
+                                    <label style="font-size: 15pt;">Supplier : {{$pembelian->nama}}</label>
                                     <br>
-                                    <?php if ($data->sisa_piutang == 0) {
+                                    <?php if ($pembelian->sisa_piutang == 0) {
                                         $lunas = "Lunas";
                                     } else {
                                         $lunas = "Belum lunas";

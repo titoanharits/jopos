@@ -10,11 +10,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $no_bukti
  * @property string $tanggal
  * @property float $biaya_kirim
+ * @property float $neto
  * @property float $diskon_satu
  * @property float $diskon_dua
  * @property string $jenis_transaksi
- * @property string $jatuh_tempo
- * @property float $neto
  * @property float $uang_muka
  * @property float $sisa_piutang
  * @property float $total
@@ -22,7 +21,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property string $deleted_at
  * @property Supplier $supplier
+ * @property DetailPembelian[] $detailPembelians
  * @property HutangPembelian[] $hutangPembelians
+ * @property ReturPembelian[] $returPembelians
  */
 class Pembelian extends Model
 {
@@ -50,7 +51,7 @@ class Pembelian extends Model
     /**
      * @var array
      */
-    protected $fillable = ['id_pembelian', 'id_supplier', 'no_bukti', 'tanggal', 'biaya_kirim', 'neto', 'diskon_satu', 'diskon_dua', 'jenis_transaksi', 'uang_muka', 'sisa_piutang', 'total', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id_supplier', 'no_bukti', 'tanggal', 'biaya_kirim', 'neto', 'diskon_satu', 'diskon_dua', 'jenis_transaksi', 'uang_muka', 'sisa_piutang', 'total', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -63,8 +64,24 @@ class Pembelian extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
+    public function detailPembelians()
+    {
+        return $this->hasMany('App\DetailPembelian', 'id_pembelian', 'id_pembelian');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function hutangPembelians()
     {
         return $this->hasMany('App\HutangPembelian', 'id_pembelian', 'id_pembelian');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function returPembelians()
+    {
+        return $this->hasMany('App\ReturPembelian', 'id_pembelian', 'id_pembelian');
     }
 }

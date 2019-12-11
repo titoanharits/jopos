@@ -37,16 +37,18 @@ class barangController extends Controller
   {
 
     $id = Barang::orderBy('created_at', 'DESC')
-    ->take(1)
     ->first();
     if (count((array)$id) == 0) {
       $barang = 1;
+
     } else {
       $barang = substr($id->id_barang, -4) + 1;
+
     }
+
     $supplier = Supplier::all();
     $kategori = Kategori::all();
-    return view('create_barang', compact('id','supplier', 'kategori'));
+    return view('create_barang', compact('barang','supplier', 'kategori'));
   }
 
   /**

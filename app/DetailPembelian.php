@@ -16,6 +16,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
+ * @property Barang $barang
+ * @property Pembelian $pembelian
  */
 class DetailPembelian extends Model
 {
@@ -24,4 +26,19 @@ class DetailPembelian extends Model
      */
     protected $fillable = ['id_pembelian', 'id_barang', 'jumlah', 'saldo', 'satuan', 'diskon_satu', 'diskon_dua', 'total_harga', 'created_at', 'updated_at', 'deleted_at'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function barang()
+    {
+        return $this->belongsTo('App\Barang', 'id_barang', 'id_barang');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function pembelian()
+    {
+        return $this->belongsTo('App\Pembelian', 'id_pembelian', 'id_pembelian');
+    }
 }

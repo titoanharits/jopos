@@ -29,7 +29,6 @@
                                         <th>Harga Bersih</th>
                                         <th>Uang Muka</th>
                                         <th>Sisa Piutang</th>
-                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -47,14 +46,7 @@
                                             <td>{{$item->neto}}</td>
                                             <td>{{$item->uang_muka}}</td>
                                             <td>{{$item->sisa_piutang}}</td>
-                                            <td>
-                                                <form action="pembelian/detail/{id}" method="Get"
-                                                      style="display: inline">
-                                                    <button class="btn btn-success">
-                                                        <i class="fa fa-eye"></i>
-                                                    </button>
-                                                </form>
-                                            </td>
+                                            
                                         </tr>
                                     @endforeach
                                     </tbody>

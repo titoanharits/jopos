@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property string $deleted_at
  * @property Barang[] $barangs
+ * @property Pembelian[] $pembelians
  */
 class Supplier extends Model
 {
@@ -32,5 +33,13 @@ class Supplier extends Model
     public function barangs()
     {
         return $this->hasMany('App\Barang', 'id_supplier');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function pembelians()
+    {
+        return $this->hasMany('App\Pembelian', 'id_supplier');
     }
 }

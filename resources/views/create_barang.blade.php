@@ -32,8 +32,8 @@
                     <div class="row">
                       <div class="col-lg-4">
                         <input type="number" class="form-control" name="id_barang"
-                        placeholder="Kode Barang"
-                        value="0000 {{$id}}"/>
+                        placeholder="0000{{$barang}}"
+                        value="0000{{$barang}}"/>
                         @if($errors->has('id_barang'))
                         <p>{{$errors->first('id_barang')}}</p>
                         @endif
